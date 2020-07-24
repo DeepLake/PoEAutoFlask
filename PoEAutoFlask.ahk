@@ -5,7 +5,7 @@
 ; alt+f12 - activate automatic flask usage
 ; right mouse button - primary attack skills
 ; 1-5 - number keys to manually use a specific flask
-; ` (backtick) - use all flasks, now
+; Right - use all flasks, now
 ; "e" and "r" for casting buffs
 ; Note - the inventory buttons assume a starting location based on screen
 ; resolution - you'll need to update some locations, see below.
@@ -35,7 +35,7 @@ FlaskDurationInit[2] := 0
 FlaskDurationInit[3] := 0
 FlaskDurationInit[4] := 0
 FlaskDurationInit[5] := 0
-FlaskDurationInit["e"] := 4500	; I use Steelskin here
+FlaskDurationInit["e"] := 0	; I use Steelskin here
 FlaskDurationInit["r"] := 0	; I use Molten Shell here
 
 FlaskDuration := []
@@ -124,7 +124,13 @@ Loop {
 	} else {
 		ToolTip, UseFlasks Off
 	}
+
+                Settimer, Tipoff, -1000
 	return
+
+Tipoff:
+ToolTip, Off
+return
 
 ;----------------------------------------------------------------------
 ; To use a different moust button (default is right click), change the
